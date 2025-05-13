@@ -1,18 +1,21 @@
 #include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
-
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+int Pins[]={2,4,5,18,19,21};   
+int num=6;
+void setup(){
+  for(int i = 0; i < num; i++){
+    pinMode(Pins[i],OUTPUT);
+    digitalWrite(Pins[i],LOW);
+  }
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void loop(){
+  for(int i=0;i<num;i++){
+    digitalWrite(Pins[i],HIGH);   
+    delay(200);
+    digitalWrite(Pins[i],LOW);    
+  }
+  for(int i=num-1;i>=0;i--){
+    digitalWrite(Pins[i],HIGH);
+    delay(200);
+    digitalWrite(Pins[i],LOW);
+  }
 }
